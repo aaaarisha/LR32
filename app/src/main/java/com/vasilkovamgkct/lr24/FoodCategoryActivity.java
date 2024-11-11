@@ -26,12 +26,10 @@ public class FoodCategoryActivity extends AppCompatActivity {
         ListView listFoods = findViewById(R.id.list_foods);
         listFoods.setAdapter(listAdapter);
 
-        AdapterView.OnItemClickListener itemClickListener = new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> listFoods, View itemView, int position, long id) {
-                Intent intent = new Intent(FoodCategoryActivity.this, FoodActivity.class);
-                intent.putExtra(FoodActivity.EXTRA_FOODID, (int) id);
-                startActivity(intent);
-            }
+        AdapterView.OnItemClickListener itemClickListener = (listFoods1, itemView, position, id) -> {
+            Intent intent = new Intent(FoodCategoryActivity.this, FoodActivity.class);
+            intent.putExtra(FoodActivity.EXTRA_FOODID, (int) id);
+            startActivity(intent);
         };
         listFoods.setOnItemClickListener(itemClickListener);
     }
